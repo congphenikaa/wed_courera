@@ -62,3 +62,62 @@ h1 {
 p {
   line-height: 1.6;
 }
+
+/* Ẩn link bỏ qua khỏi người dùng thông thường nhưng hiển thị khi focus */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  z-index: 100;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 10px;
+}
+
+/* Ẩn kiểu cũ cho li nếu cần - đã có trong nav ul li nên có thể bỏ dòng này nếu không dùng ngoài nav */
+/* nav ul li { display: inline-block; width: 150px; margin-right: 10px; } */
+
+/* Thay đổi nav sử dụng inline-block và chiều rộng ~80% */
+nav {
+  background-color: #336699;
+  padding: 10px;
+  display: inline-block;
+  width: 80%;
+}
+
+/* Hình ảnh bên trong nav: rộng khoảng 10% */
+nav img {
+  width: 10%;
+}
+
+/* Lưới hai cột, mỗi cột khoảng 40% */
+.grid {
+  display: grid;
+  grid-template-columns: 40% 40%;
+  justify-content: space-between;
+  column-gap: 5%;
+}
+
+/* Ảnh trong .grid: rộng 100% */
+.grid img {
+  width: 100%;
+}
+
+/* Tùy chỉnh thêm cho lưới */
+.grid {
+  justify-content: space-around;
+  align-items: center;
+  row-gap: 20px;
+}
+
+/* Flexbox */
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
