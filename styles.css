@@ -1,123 +1,69 @@
-/* 1. Thẻ nội dung - font chữ và kích thước */
-.content {
-  font-family: 'Arial', sans-serif;
-  font-size: 16px;
-}
-
-/* 2. Thẻ tiêu đề - màu nền */
-header {
-  background-color: #004080;
-  color: white;
-  padding: 20px;
-}
-
-/* 3. Thẻ nav - màu nền */
-nav {
-  background-color: #336699;
-  padding: 10px;
-}
-
-nav ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-nav ul li {
-  display: inline-block;
-  width: 150px;
-  margin-right: 10px;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-}
-
-/* 4. Thẻ chính - màu nền và kích thước chữ */
-main {
-  background-color: #f9f9f9;
-  font-size: 15px;
-  padding: 20px;
-}
-
-/* 5. Thẻ chân trang - màu nền */
-footer {
-  background-color: #222222;
-  color: white;
-  padding: 15px;
-  text-align: center;
-}
-
-/* 6. Thẻ li - hiển thị và chiều rộng (đã dùng trong nav ul li) */
-
-/* 7. Thẻ h1 - căn chỉnh, font và màu */
-h1 {
-  text-align: center;
-  font-family: 'Georgia', serif;
-  color: #003366;
-}
-
-/* 8. Thẻ p - chiều cao dòng */
-p {
-  line-height: 1.6;
-}
-
-/* Ẩn link bỏ qua khỏi người dùng thông thường nhưng hiển thị khi focus */
+/* Skip link */
 .skip-link {
   position: absolute;
-  top: -40px;
-  left: 0;
-  background: #000;
+  left: -999px;
+  top: 10px;
+  background: #222;
   color: #fff;
   padding: 8px;
-  z-index: 100;
-  text-decoration: none;
+  z-index: 1000;
 }
+
 .skip-link:focus {
-  top: 10px;
+  left: 10px;
 }
 
-/* Ẩn kiểu cũ cho li nếu cần - đã có trong nav ul li nên có thể bỏ dòng này nếu không dùng ngoài nav */
-/* nav ul li { display: inline-block; width: 150px; margin-right: 10px; } */
-
-/* Thay đổi nav sử dụng inline-block và chiều rộng ~80% */
-nav {
-  background-color: #336699;
-  padding: 10px;
-  display: inline-block;
-  width: 80%;
-}
-
-/* Hình ảnh bên trong nav: rộng khoảng 10% */
-nav img {
-  width: 10%;
-}
-
-/* Lưới hai cột, mỗi cột khoảng 40% */
-.grid {
-  display: grid;
-  grid-template-columns: 40% 40%;
-  justify-content: space-between;
-  column-gap: 5%;
-}
-
-/* Ảnh trong .grid: rộng 100% */
-.grid img {
-  width: 100%;
-}
-
-/* Tùy chỉnh thêm cho lưới */
-.grid {
-  justify-content: space-around;
-  align-items: center;
-  row-gap: 20px;
-}
-
-/* Flexbox */
-.flex {
+/* Navbar với flex */
+.navbar {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
+  background-color: #444;
+  padding: 10px;
 }
 
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #ffd700;
+  text-decoration: underline;
+}
+
+/* Styled image */
+.styled-img {
+  border: 3px solid #ccc;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 300px;
+  transition: transform 0.3s ease;
+}
+
+.styled-img:hover {
+  transform: scale(1.1) rotate(2deg);
+}
+
+/* Gallery grid */
+.grid-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Flex layout */
+.flex-about {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 20px;
+}
+
+/* nth-child demo */
+.grid-gallery img:nth-child(even) {
+  border-radius: 20px;
+}
