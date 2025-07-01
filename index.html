@@ -1,25 +1,75 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trang Chủ</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Thư viện ảnh tương tác</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    img {
+      width: 200px;
+      height: auto;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+    }
+    img:focus {
+      outline: 3px solid blue;
+    }
+  </style>
 </head>
-<body>
+<body onload="initGallery()">
+  <h1>Thư viện ảnh tương tác</h1>
+  <div class="gallery" id="gallery">
+    <img src="img1.jpg" alt="Hình ảnh phong cảnh núi" />
+    <img src="img2.jpg" alt="Hình ảnh bãi biển hoàng hôn" />
+    <img src="img3.jpg" alt="Hình ảnh thành phố ban đêm" />
+    <img src="img4.jpg" alt="Hình ảnh rừng xanh mát" />
+    <img src="img5.jpg" alt="Hình ảnh hồ nước trong vắt" />
+    <img src="img6.jpg" alt="Hình ảnh cánh đồng hoa" />
+  </div>
 
-<a href="#main" class="skip-link">Chuyển đến Nội dung chính</a>
+  <script>
+    function initGallery() {
+      console.log("Trang đã tải xong - initGallery được gọi");
+      const images = document.querySelectorAll("#gallery img");
 
-<nav class="navbar">
-  <a href="index.html">Trang Chủ</a>
-  <a href="gallery.html">Thư viện</a>
-  <a href="about.html">Giới thiệu</a>
-</nav>
+      for (let i = 0; i < images.length; i++) {
+        const img = images[i];
 
-<main id="main" class="main-content">
-  <h1>Chào mừng đến với Trang chủ</h1>
-  <img src="images/home.jpg" alt="Ảnh trang chủ" class="styled-img" />
-</main>
+        // Thêm tabindex để có thể tab tới hình ảnh
+        img.setAttribute("tabindex", "0");
 
+        // Sự kiện khi chuột vào
+        img.addEventListener("mouseover", function () {
+          img.style.border = "2px solid green";
+          console.log(`mouseover vào ảnh ${i + 1}`);
+        });
+
+        // Sự kiện khi chuột rời đi
+        img.addEventListener("mouseleave", function () {
+          img.style.border = "2px solid #ccc";
+          console.log(`mouseleave khỏi ảnh ${i + 1}`);
+        });
+
+        // Sự kiện khi focus bằng bàn phím (tab)
+        img.addEventListener("focus", function () {
+          img.style.border = "2px solid blue";
+          console.log(`focus vào ảnh ${i + 1}`);
+        });
+
+        // Sự kiện khi mất focus
+        img.addEventListener("blur", function () {
+          img.style.border = "2px solid #ccc";
+          console.log(`blur khỏi ảnh ${i + 1}`);
+        });
+      }
+    }
+  </script>
 </body>
 </html>
